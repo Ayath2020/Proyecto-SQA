@@ -5,16 +5,34 @@ plugins {
 group = 'com.jqueryui'
 version = '1.0-SNAPSHOT'
 
+
+ext {
+    serenityVersion = '4.0.28'
+    slf4jVersion = '2.0.9'
+    junitVersion = '5.10.1'
+}
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.10.0'
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.16'
+    testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.0'
+
+    implementation group: 'net.serenity-bdd', name: 'serenity-core', version: serenityVersion
+    implementation group: 'net.serenity-bdd', name: 'serenity-junit', version: serenityVersion
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay', version: serenityVersion
+    implementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: serenityVersion
+    implementation group: 'net.serenity-bdd', name: 'serenity-ensure', version: serenityVersion
+    implementation group: 'net.serenity-bdd', name: 'serenity-screenplay-webdriver', version: serenityVersion
+
 }
 
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
 test {
-    useJUnitPlatform()
 }
+
