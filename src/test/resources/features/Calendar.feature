@@ -3,27 +3,41 @@ Feature: Selección de fechas en JQuery Datepicker
   Quiero seleccionar una fecha en el calendario
   Para visualizar y validar que se muestre correctamente en el campo de texto
 
-  Rule: Selección mediante calendario
-    Background:
-      Given que el usuario abre la página principal de JQuery Datepicker
-      And cambia al iframe donde se encuentra el calendario
+@smoke
+    Scenario: Reserva de una cita seleccionando el dia actual en el calendario
+      Given que Jose abre la página principal de JQuery Datepicker
+      When Jose cambia al iframe donde se encuentra el calendario
+      And Jose hace clic en el campo de selección de fecha
+      And Jose Selecciona el día actual del mes
+      Then Jose valida que la fecha seleccionada se visualiza en el campo de texto
 
-  @ui
-    Scenario: Reserva de una cita seleccionando una fecha en el calendario
-      When hace clic en el campo de selección de fecha
-      And selecciona el día 15 del mes actual
-      Then la fecha seleccionada (15/mm/yyyy) aparece en el campo de texto
-
-
+  @smoke
     Scenario: Selección de una fecha específica en un mes diferente
-      When hace clic en el campo de selección de fecha
-      And navega al próximo mes
-      And selecciona el día 10 del próximo mes
-      Then la fecha seleccionada (10/mm+1/yyyy) aparece en el campo de texto
+      Given que Jose abre la página principal de JQuery Datepicker
+      When Jose cambia al iframe donde se encuentra el calendario
+      And Jose hace clic en el campo de selección de fecha
+      And Jose navega al próximo mes
+      And Jose selecciona el día 10 del próximo mes
+      Then Jose valida que la fecha seleccionada del proximo mes se visualiza en el campo de texto
 
-  Rule: Validaciones del campo
-    Scenario: Validación de campo bloqueado en JQuery Datepicker
-      Given que el usuario abre la página principal de JQuery Datepicker
-      When intenta ingresar manualmente la fecha "2025/10/01" en el campo de texto
-      Then el sistema no permite la edición manual
-      And solo es posible seleccionar una fecha desde el calendario
+
+  @smoke
+  Scenario: Reserva de una cita seleccionando el dia actual en el calendario
+    Given que Jose abre la página principal de JQuery Datepicker
+    When Jose cambia al iframe donde se encuentra el calendario
+    And Jose hace clic en el campo de selección de fecha
+    And Jose Selecciona el día actual del mes
+    Then Jose valida que la fecha seleccionada se visualiza en el campo de texto
+    When Jose hace clic nuevamente en el campo de selección de fecha
+    And Jose intenta modificar la fecha manualmente
+    And Jose valida que la fecha permanece igual a la seleccionada previamente
+
+  @smoke
+    Scenario: Validación de campo Date en JQuery Datepicker
+    Given que Jose abre la página principal de JQuery Datepicker
+    When Jose cambia al iframe donde se encuentra el calendario
+    And Jose intenta ingresar manualmente la fecha "2025/10/01" en el campo de texto
+    Then Jose valida que el sistema no permite la edición manual
+
+
+

@@ -1,16 +1,24 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:4.1.14"
+    }
+}
+
 plugins {
     id 'java'
+    id 'idea'
+    id "net.serenity-bdd.serenity-gradle-plugin" version '4.1.14'
+}
+
+ext {
+    serenityVersion = '4.0.28'
 }
 
 group = 'com.jqueryui'
 version = '1.0-SNAPSHOT'
-
-
-ext {
-    serenityVersion = '4.0.28'
-    slf4jVersion = '2.0.9'
-    junitVersion = '5.10.1'
-}
 
 repositories {
     mavenCentral()
@@ -18,7 +26,6 @@ repositories {
 
 dependencies {
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.10.0'
-    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.16'
     testRuntimeOnly group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.10.0'
 
     implementation group: 'net.serenity-bdd', name: 'serenity-core', version: serenityVersion
@@ -27,6 +34,7 @@ dependencies {
     implementation group: 'net.serenity-bdd', name: 'serenity-cucumber', version: serenityVersion
     implementation group: 'net.serenity-bdd', name: 'serenity-ensure', version: serenityVersion
     implementation group: 'net.serenity-bdd', name: 'serenity-screenplay-webdriver', version: serenityVersion
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.16'
 
 }
 
@@ -34,5 +42,6 @@ compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
 test {
+    systemProperties System.getProperties()
 }
 

@@ -6,9 +6,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/Calendar.feature",   // carpeta o archivo .feature
+        features = "src/test/resources/features/Calendar.feature",
         glue = "com.jqueryui.stepdefinitions",
-        tags = "@ui",
+        tags = "@smoke",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class DatepickersRunner {}
