@@ -1,6 +1,6 @@
 # Reto Técnico – Automatización con Serenity BDD & Screenplay
 
-Este proyecto implementa la **automatización de pruebas funcionales** sobre el componente **JQuery Datepicker**, utilizando el patrón **Screenplay** de Serenity BDD junto con **Cucumber** para la definición de escenarios en lenguaje Gherkin.
+Este proyecto implementa la **automatización de pruebas ** sobre el componente **JQuery Datepicker**, utilizando el patrón **Screenplay** de Serenity BDD junto con **Cucumber** para la definición de escenarios en lenguaje Gherkin.
 
 ---
 

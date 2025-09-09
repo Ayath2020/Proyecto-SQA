@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/Calendar.feature",
         glue = "com.jqueryui.stepdefinitions",
-        tags = "@smoke",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class DatepickersRunner {}

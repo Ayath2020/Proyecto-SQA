@@ -22,7 +22,7 @@ Feature: Selección de fechas en JQuery Datepicker
 
 
   @smoke
-  Scenario: Reserva de una cita seleccionando el dia actual en el calendario
+  Scenario: Modificacion Manual de la fecha seleccionada en el calendario
     Given que Jose abre la página principal de JQuery Datepicker
     When Jose cambia al iframe donde se encuentra el calendario
     And Jose hace clic en el campo de selección de fecha
@@ -33,7 +33,7 @@ Feature: Selección de fechas en JQuery Datepicker
     And Jose valida que la fecha permanece igual a la seleccionada previamente
 
   @smoke
-    Scenario: Validación de campo Date en JQuery Datepicker
+    Scenario: Validación de campo fecha no editable
     Given que Jose abre la página principal de JQuery Datepicker
     When Jose cambia al iframe donde se encuentra el calendario
     And Jose intenta ingresar manualmente la fecha "2025/10/01" en el campo de texto
